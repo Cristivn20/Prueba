@@ -1,0 +1,51 @@
+import os
+contra = int(float(input("ingrese la contraseña: ")))
+if contra >= 4552710 and contra <= 4552710:
+    file=open ("1.txt", "r")
+    for item in file:
+        print(item)
+    file.close()
+else:
+    print("Contraseña incorrecta")   
+    file.close()
+
+while True:
+    print("Elija una opcion:")
+    print("1. Crear nuevo archivo")
+    print("2. Abrir archivo txt de red")
+    print("3. Agregar informacion a un archivo")
+    print("4. Salir")
+
+    user_choice = input("> ")
+    
+    if user_choice == "1":
+        file_name = input("Como desea guardar su nuevo archivo?: ")
+        with open(file_name, 'w') as f:
+            pass
+        print(f"{file_name} Se a creado exitosamente!")
+    
+    elif user_choice == "2":
+        file_name = "DISPOSITIVOS.txt"
+        if os.path.exists(file_name):
+            with open(file_name, 'r') as f:
+                print(f.read())
+        else:
+            print(f"{file_name} No existe.")
+    
+    elif user_choice == "3":
+        file_name = input("Que archivo desea editar?: ")
+        if os.path.exists(file_name):
+            with open(file_name, 'a') as f:
+                new_text = input("Introduzca el nuevo texto: ")
+                f.write(new_text)
+            print(f"{file_name} Editado exitosamente!")
+        else:
+            print(f"{file_name} No existe.")
+    
+    elif user_choice == "4":
+        print("Saliendo del programa...")
+        break
+    
+    else:
+        print("Intentelo otra vez.")
+        
